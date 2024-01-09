@@ -17,7 +17,7 @@ public:
 };
 
 
-Optimal Approach
+Better Approach
 
 
 class Solution {
@@ -36,3 +36,27 @@ public:
         return {};
     }
 };
+
+
+Optimal Approach
+
+
+string read(int n, vector<int> book, int target)
+{
+    int low = 0;
+    int high = n - 1;
+    sort(book.begin(), book.end());
+    while(low<=high){
+        if(book[low] + book[high] < target){
+            low++;
+        }
+        else if(book[low] + book[high] > target){
+            high--;
+        }
+        else{
+            return "YES";
+        }
+    }
+    return "NO";
+}
+
